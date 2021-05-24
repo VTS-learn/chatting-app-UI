@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import ChatList from './components/chatList/ChatList';
+import ChattingArea from './components/chattingArea/ChattingArea';
+import ChattingInfo from './components/chattingInfo/ChattingInfo';
+import Open from './components/Open';
+import { Timeline, Tween } from 'react-gsap';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <ChatList/>
+      <ChattingArea/>
+      <ChattingInfo/>
+
+      <Timeline
+        target={
+          <div className="opening">
+            <Open due={.6}/>
+            <Open due={.5}/>
+            <Open due={.4}/>
+            <Open due={.3}/>
+            <Open due={.3}/>
+          </div>
+        }
+      >
+        <Tween to={{ display:'none' }} duration={.1} />
+      </Timeline>
+      
     </div>
   );
 }

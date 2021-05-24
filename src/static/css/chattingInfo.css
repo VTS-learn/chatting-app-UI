@@ -1,0 +1,42 @@
+.chattingInfo-img{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.chatting-info-avatar-name{
+    margin: 20px 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.personal-info{
+    font-size: 14px;
+    margin: 0 10px;
+}
+
+.table-wrapper{
+    margin: 0 10px;
+    margin-top: 50px;
+}
+
+.table-data-info{
+    display: flex;
+    font-size: 13px;
+    border-bottom: 1px solid gray;
+    padding: 8px 0;
+}
+
+.table-type{
+    width: 100px;
+}
+
+.table-data-info span svg{
+    font-size: 18px !important;
+    margin-right: 5px;
+}
+
+.table-data{
+    overflow-wrap: break-word;
+    width: 140px;
+}

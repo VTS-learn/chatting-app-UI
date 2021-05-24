@@ -1,0 +1,13 @@
+.chat-area-header{
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0px 2px 22px 4px rgb(0 0 0 / 13%);
+}
+
+.chat-area-header h1{
+    font-size: 22px;
+    margin: 0 20px;
+}

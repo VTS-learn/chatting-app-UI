@@ -1,38 +1,48 @@
-.App {
-  text-align: center;
+.app{
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.chatlist{
+    width: 380px;
+    min-width: 380px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.chattingArea{
+    position: relative;
+    width: 100%;
+    background: linear-gradient(338.12deg, rgba(197, 244, 255, 0.76) 4.67%, rgba(197, 244, 255, 0.07) 41.31%, rgba(197, 244, 255, 0.42) 67.52%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.chattingInfo{
+    width: 320px;
+    min-width: 320px;
 }
 
-.App-link {
-  color: #61dafb;
+.chatlist,
+.chattingArea,
+.chattingInfo{
+    height: 100vh;
+    overflow: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* opening */
+
+.opening{
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+._open{
+    width: 100%;
+    animation: pen 1s;
+    background-color: rgb(255, 255, 255);
+    border-right: 2px solid rgb(216, 216, 216);
 }

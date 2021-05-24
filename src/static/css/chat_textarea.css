@@ -1,0 +1,41 @@
+.chat_text_area{
+    position: absolute;
+    bottom: 20px;
+    box-shadow: 0px 2px 22px 4px rgb(0 0 0 / 13%);
+    width: 96%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    padding: 10px;
+    justify-content: space-between;
+    background-color: #dbf9ff;
+}
+
+.chat_text_area textarea{
+    width: 100%;
+    max-height: 150px;
+    min-height: 50px;
+    padding: 10px;
+    background-color: #fff;
+    font-size: 16px;
+    border: none;
+    resize: none;
+}
+
+.chat_text_area svg{
+    display: block;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.reply-text{
+    font-size: 14px;
+    padding: 10px;
+    color: rgba(0, 0, 0, 0.7);
+    padding-right: 50px;
+}
+
+.chat_text_box{
+    display: flex;
+    align-items: flex-end;
+}

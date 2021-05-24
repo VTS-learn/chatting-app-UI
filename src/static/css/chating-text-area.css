@@ -1,0 +1,121 @@
+.chatting-text-area{
+    height: 78vh;
+    overflow-y: auto;
+    margin: 0 10px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+@media screen and (max-height:900px){
+    .chatting-text-area{
+        height: 76vh;
+    }
+}
+
+@media screen and (max-height:800px){
+    .chatting-text-area{
+        height: 73vh;
+    }
+}
+
+
+@media screen and (max-height:700px){
+    .chatting-text-area{
+        height: 70vh;
+    }
+}
+
+@media screen and (max-height:620px){
+    .chatting-text-area{
+        height: 68vh;
+    }
+}
+
+.single-text-field{
+    display: flex;
+}
+
+.the-message{
+    padding: 15px 20px;
+    background-color: #fff;
+    margin: 0 10px;
+    max-width: 70%;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    box-shadow: 0px 4px 34px 1px rgba(0, 0, 0, 0.08);
+    margin-top: 10px;
+    position: relative;
+}
+
+.the-message[type="audio"]{
+    min-width: max-content;
+}
+
+.the-message-sent{
+    font-size: 12px;
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+.single-text-field[type="me"]{
+    direction: rtl;
+}
+
+.single-text-field[type="me"] .the-message{
+    direction: ltr;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 0px ;
+    width: 67%;
+}
+
+.single-text-field[type="me"] span{
+    direction: ltr;
+}
+
+.option-icon{
+    position: absolute;
+    top: 0;
+    right: -35px;
+    cursor: pointer;
+    opacity: 0;
+    transition: .3s;
+}
+
+.single-text-field:hover .option-icon{
+    opacity: 1;
+}
+
+.single-text-field[type="me"] .option-icon{
+    right: auto;
+    left: -35px;
+}
+
+.text-option-list{
+    position: absolute;
+    top: 0;
+    right: -140px;
+    list-style: none;
+    text-align: center;
+    background-color: #fff;
+    padding: 3px 0;
+    box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+    height: auto;
+}
+
+.single-text-field[type="me"] .text-option-list{
+    right: auto;
+    left: -140px;
+}
+
+.text-option-list button{
+    padding: 3px 25px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    text-transform: none;
+}
+
