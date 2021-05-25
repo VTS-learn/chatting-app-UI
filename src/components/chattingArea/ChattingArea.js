@@ -29,6 +29,15 @@ const ChattingArea = () => {
         setReply(e)
     }
 
+    const removeItem = (id) => {
+        const messageArrayitems = messageArray.filter(item => item.id !== id);
+
+        setTimeout(() => {
+            setMessageArray(messageArrayitems)
+        }, 200);
+        console.log(messageArrayitems)
+    }
+
 
     return (
         <div className="chattingArea">
@@ -39,6 +48,7 @@ const ChattingArea = () => {
                     messageArray.map((item,index) => {
                         return <ChattingText 
                                     key={index} 
+                                    removeItem={removeItem}
                                     id={item.id}
                                     list={messageArray}
                                     textTo={item.text_To}

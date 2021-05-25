@@ -1,47 +1,21 @@
-import React , {useState , useRef , useEffect} from 'react';
+import React , {useState , useRef } from 'react';
 import SearchBar from './SearchBar';
 import ChatListCard from './ChatListCard';
 import styled from '../../static/css/chatList.module.css';
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollTrigger } from 'react-gsap';
-
+import { Timeline } from 'react-gsap';
 
 const ChatList = () => {
 
-    // gsap.registerPlugin(ScrollTrigger);
     const ref = useRef(null);
 
     const [ searchVal , setSearchVal ] = useState("");
 
-
-    // useEffect(() => {
-        
-    //     gsap.fromTo(".box-es",
-    //       {
-    //         x: -10,
-    //         y: 0
-    //       },
-    //       { 
-    //         x: 0,
-    //         y: 0,
-    //         scrollTrigger:{
-    //             start: "100px",
-    //             end: "bottom bottom",
-    //             scrub: .4,
-    //             scroller: ".main-div",
-    //             trigger: ".box-es",
-    //             markers: true
-    //           }
-    //       }
-    //     );
-    //   }, []);
-
-
     const filtering_val = (e) => {
-        setSearchVal(e.target.value);
+        setTimeout(() => {
+            setSearchVal(e.target.value);
+        }, 300); 
     }
-    
+
 
     return (
         <div className="chatlist" ref={ref}>
@@ -49,23 +23,24 @@ const ChatList = () => {
 
             <div className={styled.chatingCardList}  >
                 <div className="main-div">
-                    <ScrollTrigger start="top top" end="botton botton" scrub={0.5} scroller=".main-div"> 
-                        {
-                            chatUserPersonList.filter(theArray => theArray.name.includes(searchVal)).map((iteam) =>{
-                                return  <ChatListCard 
-                                            key={iteam.id}
-                                            id={iteam.id}
-                                            img={iteam.img}
-                                            name={iteam.name}
-                                            text={iteam.text}
-                                            unread={iteam.unread}
-                                            lastTime={iteam.lastTime}
-                                        />
-                                            
-                                    
-                            })
-                        }
-                    </ScrollTrigger>    
+                    <Timeline>
+
+                        { 
+                            chatUserPersonList.filter(theArray => theArray.name.includes(searchVal)).map((iteam , index) =>{
+                                    return  <ChatListCard 
+                                                key={index}
+                                                index={index} 
+                                                id={iteam.id}
+                                                img={iteam.img}
+                                                name={iteam.name}
+                                                text={iteam.text}
+                                                unread={iteam.unread}
+                                                lastTime={iteam.lastTime}
+                                            />
+                            }) 
+                        } 
+
+                    </Timeline>
 
                 </div>
             </div>

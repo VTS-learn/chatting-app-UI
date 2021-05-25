@@ -1,6 +1,6 @@
 import React , {useState , useEffect} from 'react';
 import styled from '../../static/css/chatList.module.css';
-import { Tween } from 'react-gsap';
+import { Tween , Timeline } from 'react-gsap';
 
 const ChatListCard = (props) => {
 
@@ -31,37 +31,52 @@ const ChatListCard = (props) => {
     },[lastTime])
 
     return (
-        <Tween to={{x:"-60px"}}>
-           <div className={styled.theCard} >
-                <div className={styled.userImg}>
-                    <img src={props.img} alt="user-img"/>
-                </div>
+        <Timeline 
+            target={
+                <div className={styled.theCard} >
+                    <Tween 
+                        from={{
+                            x:"-60px",
+                            opacity:0
+                        }}
+                        duration={.08}
+                    />
+                    
+                    <div className={styled.userImg}>
+                        <Timeline 
+                            target={ <img src={props.img} alt="user-img"/> }>
+                            <Tween from={{x:"60px"}} />
+                        </Timeline>
+                    </div>
 
-                <div className={styled.userName}>
-                    <h1> {props.name} </h1>
-                    <p> {props.text} </p>
-                </div>
+                    <div className={styled.userName}>
+                        <h1> {props.name} </h1>
+                        <p> {props.text} </p>
+                    </div>
 
-                <div className={styled.userUnread}>
-                    { props.unread > 0 && 
-                        <p className={styled.userUnreadNum}> {props.unread} </p> 
-                    } 
+                    <div className={styled.userUnread}>
+                        { props.unread > 0 && 
+                            <p className={styled.userUnreadNum}> {props.unread} </p> 
+                        } 
 
-                    <p className={styled.userLastSeen}> 
-                        {
-                            days && days > 0 ?
-                                days + 'd' : 
-                                hours && hours > 0 ?
-                                    hours + 'h' :
-                                    minutes && minutes > 0 ?
-                                    minutes + 'm' : 'now'
+                        <p className={styled.userLastSeen}> 
+                            {
+                                days && days > 0 ?
+                                    days + 'd' : 
+                                    hours && hours > 0 ?
+                                        hours + 'h' :
+                                        minutes && minutes > 0 ?
+                                        minutes + 'm' : 'now'
+                            }
+                        </p>
 
-                        }
-                    </p>
+                    </div>
+                </div> }
+            >
 
-                </div>
-            </div>
-        </Tween>
+            
+
+        </Timeline>
     )
 }
 
