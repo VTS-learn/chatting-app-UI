@@ -2,20 +2,30 @@ import React , {useState , useRef } from 'react';
 import SearchBar from './SearchBar';
 import ChatListCard from './ChatListCard';
 import styled from '../../static/css/chatList.module.css';
-import { Timeline } from 'react-gsap';
 
 const ChatList = () => {
 
     const ref = useRef(null);
 
-    const [ searchVal , setSearchVal ] = useState("");
+
+    const [ chatListData , setChatListData ] = useState(chatUserPersonList);
 
     const filtering_val = (e) => {
-        setTimeout(() => {
-            setSearchVal(e.target.value);
-        }, 300); 
-    }
+        if(e.target.value.trim().length !== 0){
+            
+            const newListArray = chatUserPersonList.filter(theArray => theArray.name.includes(e.target.value))
+            setChatListData([]);
+            setTimeout(()=>{
+                setChatListData(newListArray)
+            } , 100);
 
+        }else{
+            setChatListData([]);
+            setTimeout(()=>{
+                setChatListData(chatUserPersonList)
+            } , 100);
+        };
+    }
 
     return (
         <div className="chatlist" ref={ref}>
@@ -23,25 +33,20 @@ const ChatList = () => {
 
             <div className={styled.chatingCardList}  >
                 <div className="main-div">
-                    <Timeline>
-
-                        { 
-                            chatUserPersonList.filter(theArray => theArray.name.includes(searchVal)).map((iteam , index) =>{
-                                    return  <ChatListCard 
-                                                key={index}
-                                                index={index} 
-                                                id={iteam.id}
-                                                img={iteam.img}
-                                                name={iteam.name}
-                                                text={iteam.text}
-                                                unread={iteam.unread}
-                                                lastTime={iteam.lastTime}
-                                            />
-                            }) 
-                        } 
-
-                    </Timeline>
-
+                    {
+                        chatListData.map((iteam , index) =>{
+                                return  <ChatListCard 
+                                            key={index}
+                                            index={index} 
+                                            id={iteam.id}
+                                            img={iteam.img}
+                                            name={iteam.name}
+                                            text={iteam.text}
+                                            unread={iteam.unread}
+                                            lastTime={iteam.lastTime}
+                                        />
+                        }) 
+                    } 
                 </div>
             </div>
              

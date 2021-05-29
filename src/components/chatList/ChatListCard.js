@@ -1,12 +1,13 @@
 import React , {useState , useEffect} from 'react';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import styled from '../../static/css/chatList.module.css';
 import { Tween , Timeline } from 'react-gsap';
 
 const ChatListCard = (props) => {
 
-    const [ days , setDays ] = useState(0)
-    const [ hours , setHours ] = useState(0)
-    const [ minutes , setMinutes ] = useState(0)
+    const [ days , setDays ] = useState(0);
+    const [ hours , setHours ] = useState(0);
+    const [ minutes , setMinutes ] = useState(0);
 
     const { lastTime } = props
 
@@ -31,21 +32,22 @@ const ChatListCard = (props) => {
     },[lastTime])
 
     return (
-        <Timeline 
-            target={
-                <div className={styled.theCard} >
-                    <Tween 
-                        from={{
-                            x:"-60px",
-                            opacity:0
-                        }}
-                        duration={.08}
-                    />
+            <Tween 
+                from={{
+                    x:"-60px",
+                    opacity:0
+                }}
+                duration={1}
+                delay={props.index/3}
+            >
+                <CardActionArea 
+                    className={styled.theCard} 
+                >
                     
                     <div className={styled.userImg}>
                         <Timeline 
                             target={ <img src={props.img} alt="user-img"/> }>
-                            <Tween from={{x:"60px"}} />
+                            <Tween from={{x:"60px"}}  delay={props.index/3}/>
                         </Timeline>
                     </div>
 
@@ -71,12 +73,8 @@ const ChatListCard = (props) => {
                         </p>
 
                     </div>
-                </div> }
-            >
-
-            
-
-        </Timeline>
+                </CardActionArea>
+            </Tween>
     )
 }
 
