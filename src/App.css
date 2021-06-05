@@ -46,3 +46,10 @@
     background-color: rgb(255, 255, 255);
     border-right: 2px solid rgb(216, 216, 216);
 }
+
+@media screen and (max-width:1320px) {
+    .chatlist{
+        width: 320px;
+        min-width: 320px
+    }
+}

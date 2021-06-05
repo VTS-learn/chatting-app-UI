@@ -4,6 +4,8 @@ import styled from '../../static/css/chatList.module.css';
 import { Tween , Timeline } from 'react-gsap';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import DeleteForeverTwoToneIcon from '@material-ui/icons/DeleteForeverTwoTone';
+import {useDispatch} from 'react-redux';
+import { responsive_ui_userList , responsive_ui_chatArea } from '../../store/actions'
 
 const ChatListCard = (props) => {
 
@@ -17,6 +19,7 @@ const ChatListCard = (props) => {
 
     const { lastTime } = props;
     let timerinterval = useRef(null);
+    const dispatch = useDispatch();
 
 
     useEffect(()=>{
@@ -82,6 +85,16 @@ const ChatListCard = (props) => {
         }
     }
 
+
+    let viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
+    const mobile_list_hide_action = () =>{
+        if(viewportWidth <= 720 ){
+            dispatch(responsive_ui_userList(false))
+            dispatch(responsive_ui_chatArea(true))
+        }
+    }
+
     return (
         <ClickAwayListener onClickAway={handleClick}>
             <Tween 
@@ -106,12 +119,12 @@ const ChatListCard = (props) => {
                     
                         <div className={styled.userImg}>
                             <Timeline 
-                                target={ <img src={props.img} alt="user-img"/> }>
+                                target={ <img onClick={mobile_list_hide_action} src={props.img} alt="user-img"/> }>
                                 <Tween from={{x:"60px"}}  delay={props.index/3}/>
                             </Timeline>
                         </div>
 
-                        <div className={styled.userName}>
+                        <div className={styled.userName} onClick={mobile_list_hide_action}>
                             <h1> {props.name} </h1>
                             <p> {props.text} </p>
                         </div>

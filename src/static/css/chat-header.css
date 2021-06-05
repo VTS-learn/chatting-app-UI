@@ -1,0 +1,13 @@
+.chat-area-back-btn{
+    display: grid !important;
+    place-items: center !important;
+    height: 40px !important;
+    width: 40px !important;
+    max-width: 40px !important;
+    min-width: 40px !important;
+    border-radius: 100% !important;
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    color: rgb(78, 84, 112) !important;
+}

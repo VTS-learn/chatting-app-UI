@@ -9,6 +9,11 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import AudioRecoder from './AudioRecoder'
 import AudiotrackTwoToneIcon from '@material-ui/icons/AudiotrackTwoTone';
+import CloseIcon from '@material-ui/icons/Close';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import {specefic_reply} from '../../store/actions';
+import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -32,6 +37,8 @@ const TextareField = (props) => {
     const [open, setOpen] = useState(false);
     const [ message , setMassage ] = useState('');
 
+    const dispatch = useDispatch();
+
     const messageVal = (e) =>{
       setMassage(e.target.value)
     }
@@ -45,9 +52,14 @@ const TextareField = (props) => {
     };
 
     const send_message = () =>{
-      message.trim() !== "" &&
-        props.text_tran(message)
-        setMassage('')
+      message.trim() !== "" && props.text_tran(message)
+      setMassage('')
+      dispatch(specefic_reply(false))
+    }
+
+    const remove_reply = () => {
+      props.reply_val_fc(null)
+      dispatch(specefic_reply(false))
     }
 
 
@@ -55,10 +67,18 @@ const TextareField = (props) => {
         <div className="chat_text_area">
 
           {
-            props.reply_val &&
-            <>
+            props.reply_val && 
+            <Box display="flex" alignSelf="flex-start" justifyContent="space-between">
               <p className="reply-text"> { props.reply_val === "audio" ? <> <AudiotrackTwoToneIcon/> audio clip ! </> : props.reply_val } </p>
-            </>
+              <Button 
+                variant="outlined" 
+                color="primary" 
+                className="reply-remove" 
+                onClick={remove_reply}
+                >
+                <CloseIcon/>
+              </Button>
+            </Box>
           }
             
 

@@ -43,6 +43,7 @@
     background-color: #fff;
     margin: 0 10px;
     max-width: 70%;
+    width: fit-content;
     border-radius: 20px;
     border-top-left-radius: 0;
     box-shadow: 0px 4px 34px 1px rgba(0, 0, 0, 0.08);
@@ -68,11 +69,28 @@
     direction: ltr;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 0px ;
-    width: 67%;
+    max-width: 67%;
+    width: fit-content;
 }
 
 .single-text-field[type="me"] span{
     direction: ltr;
+}
+
+.specific_reply{
+    position: relative;
+    padding: 15px 20px;
+    margin-right: 10px;
+    background: #fff;
+    text-align: left;
+    opacity: .6;
+    top: 15px;
+    box-shadow: 0px 4px 34px 1px rgb(0 0 0 / 8%);
+    border-radius: 20px;
+    max-width: 67%;
+    width: fit-content;
+    overflow: hidden;
+    direction: ltr !important;
 }
 
 .option-icon{

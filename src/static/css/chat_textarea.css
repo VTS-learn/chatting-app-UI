@@ -39,3 +39,16 @@
     display: flex;
     align-items: flex-end;
 }
+
+.reply-remove{
+    max-width: 35px !important;
+    min-width: 35px !important;
+    height: 35px !important;
+    display: grid !important;
+    place-items: center !important;
+    padding: 0 4px !important;
+}
+
+.reply-remove svg{
+    margin: 0 !important;
+}

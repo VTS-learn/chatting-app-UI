@@ -1,16 +1,14 @@
 import './App.css';
-import ChatList from './components/chatList/ChatList';
-import ChattingArea from './components/chattingArea/ChattingArea';
-import ChattingInfo from './components/chattingInfo/ChattingInfo';
 import Open from './components/Open';
 import { Timeline, Tween } from 'react-gsap';
+import ResponsivCall from './ResponsivCall'
 
 const App = () => {
+  
   return (
     <div className="app">
-      <ChatList/>
-      <ChattingArea/>
-      <ChattingInfo/>
+
+      <ResponsivCall/>      
 
       <Timeline
         target={

@@ -1,8 +1,8 @@
 import thunk from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import {SSS_PPP_FFF_reduce} from './reducer'
+import {specefic_reply_reduce , responsive_ui , responsive_ui_userList, responsive_ui_chatArea} from './reducer';
 
-const allReducers = combineReducers({SSS_PPP_FFF_reduce});
+const allReducers = combineReducers({specefic_reply_reduce , responsive_ui , responsive_ui_userList, responsive_ui_chatArea});
 
 const middleware = [thunk]
 

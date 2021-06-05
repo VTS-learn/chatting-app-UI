@@ -2,13 +2,18 @@ import React , {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
-import { Fade } from "react-awesome-reveal";
 import { Timeline, Tween } from 'react-gsap';
+import {specefic_reply} from '../../store/actions';
+import { useDispatch } from 'react-redux';
+import AudiotrackTwoToneIcon from '@material-ui/icons/AudiotrackTwoTone';
+import AudioPlayer from 'material-ui-audio-player';
 
 const ChattingText = (props) => {
     const [ show , setShow ] = useState(false);
     const [ opacityAnim , setOpacityAnim ] = useState({ opacity: 1 });
     const [ leftAnim , setLeftAnim ] = useState({  scale:1 });
+
+    const dispatch = useDispatch();
 
     const showFun = () =>{
         setShow(!show)
@@ -18,9 +23,9 @@ const ChattingText = (props) => {
         setShow(false)
     }
 
-    const scrollInterval = () =>{
+    const specific_reply = () =>{
         !props.audio ?  props.reply_val(props.the_text) : props.reply_val("audio")
-        
+        dispatch(specefic_reply(true))
     }
 
     const remove = (e) =>{
@@ -45,8 +50,10 @@ const ChattingText = (props) => {
         
     }
 
+    let viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
     return (
-        <Fade className={props.id}>
+        <div className={props.id}>
             <div className="single-text-field" type={props.textTo} onMouseLeave={hideFun}>
 
                 {
@@ -62,14 +69,23 @@ const ChattingText = (props) => {
                 
                 <Timeline target= {
                     <div className="text-info">
+                        { props.is_reply &&  
+                            <Tween from={{ width: '0', height:'0'  }} duration={.8}>
+                                <p className="specific_reply"> 
+                                    { props.audio ? <> <AudiotrackTwoToneIcon/> audio clip ! </> : props.the_reply_text }
+                                </p> 
+                            </Tween>
+                        }
                         
                         <div className="the-message" type={props.audio ? "audio" : "text"}>
                             { !props.audio ?
                                 <p> {props.the_text} </p>
                                 :
-                                <audio controls>
-                                    <source src={props.audio} type="audio/mpeg"/>
-                                </audio>
+                                <AudioPlayer
+                                    volume={ viewportWidth <=720 ? false : true }
+                                    src={props.audio}
+                                    order="standart"
+                                />
                             }
                             
                             <MoreVertIcon 
@@ -81,7 +97,7 @@ const ChattingText = (props) => {
                                 show && 
                                     <ul className="text-option-list">
                                         <Button onClick={remove}> Remove </Button>
-                                        <Button onClick={scrollInterval}> Reply </Button>
+                                        <Button onClick={specific_reply}> Reply </Button>
                                     </ul>
                             }
                             
@@ -96,7 +112,7 @@ const ChattingText = (props) => {
                 </Timeline>
                 
             </div>
-        </Fade>
+        </div>
         
     )
 }
