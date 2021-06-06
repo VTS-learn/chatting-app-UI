@@ -40,7 +40,7 @@ const ChatAreaHeader = () => {
                 <h1> Remy Sharp </h1>
             </Box>
 
-            { viewportWidth <= 820 && 
+            { viewportWidth <= 720 && 
                 <Button className="chat-area-back-btn" onClick={mobile_list_hide_action}>
                     <ArrowBackIcon />
                 </Button>  

@@ -70,10 +70,12 @@ const ChattingText = (props) => {
                 <Timeline target= {
                     <div className="text-info">
                         { props.is_reply &&  
-                            <Tween from={{ width: '0', height:'0'  }} duration={.8}>
-                                <p className="specific_reply"> 
+                            <Tween from={props.test_1} to={props.test_2} duration={.8}>
+                                <div>
+                                <p className="specific_reply" > 
                                     { props.audio ? <> <AudiotrackTwoToneIcon/> audio clip ! </> : props.the_reply_text }
                                 </p> 
+                                </div>
                             </Tween>
                         }
                         
@@ -81,11 +83,13 @@ const ChattingText = (props) => {
                             { !props.audio ?
                                 <p> {props.the_text} </p>
                                 :
-                                <AudioPlayer
-                                    volume={ viewportWidth <=720 ? false : true }
-                                    src={props.audio}
-                                    order="standart"
-                                />
+                                <div className="audio__player">
+                                    <AudioPlayer
+                                        volume={ viewportWidth < 1024 ? false : true }
+                                        src={props.audio}
+                                        order="standart"
+                                    />
+                                </div>
                             }
                             
                             <MoreVertIcon 

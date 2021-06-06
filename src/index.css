@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -30,32 +30,26 @@ code {
   overflow-y: overlay;
 }
 
+@media screen and (min-width:1020px) {
 
-.main-div::-webkit-scrollbar {
-  width: 0px;
-}
+  .main-div::-webkit-scrollbar {
+    width: 0px;
+  }
 
-.main-div:hover::-webkit-scrollbar{
-  width: 10px;
-}
+  .main-div:hover::-webkit-scrollbar {
+    width: 10px;
+  }
 
-.main-div::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+  .main-div::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
 
-.main-div::-webkit-scrollbar-thumb {
-  background: #888;
-}
+  .main-div::-webkit-scrollbar-thumb {
+    background: #888;
+  }
 
-.main-div::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
+  .main-div::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
-.makeStyles-elevation1-12{
-  box-shadow: none !important;
-}
-
-.makeStyles-icon-42:hover,
-.makeStyles-icon-50:hover{
-  color: rgba(0, 0, 0, 0.54) !important;
 }

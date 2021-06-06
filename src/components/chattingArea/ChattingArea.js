@@ -13,13 +13,13 @@ const ChattingArea = () => {
 
     const reply_dedicated = useSelector( state => state.specefic_reply_reduce )
 
-    const sending_text = (the_text) =>{
+    const sending_text = (the_text , the_audio = false ) =>{
         setMessageArray([
             {
                 id : Math.floor(Math.random()*9900),
                 text_To: "me",
                 the_text : the_text,
-                audio : false,
+                audio : the_audio,
                 is_reply : reply_dedicated,
                 the_reply_text : reply
             },
@@ -42,6 +42,9 @@ const ChattingArea = () => {
         console.log(messageArrayitems)
     }
 
+    const test_1 = { width: '0', height:'0'  }
+    const test_2 = { width: 'auto', height:'auto'  }
+
 
     return (
         <div className="chattingArea">
@@ -61,6 +64,9 @@ const ChattingArea = () => {
                                     is_reply={item.is_reply}
                                     the_text={item.the_text}
                                     the_reply_text={item.the_reply_text}
+
+                                    test_1={test_1}
+                                    test_2={test_2}
                                     
                                 />
                     })

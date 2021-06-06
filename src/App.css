@@ -1,36 +1,36 @@
-.app{
+.app {
     display: flex;
     justify-content: space-between;
     height: 100vh;
     overflow: hidden;
 }
 
-.chatlist{
+.chatlist {
     width: 380px;
     min-width: 380px;
 }
 
-.chattingArea{
+.chattingArea {
     position: relative;
     width: 100%;
     background: linear-gradient(338.12deg, rgba(197, 244, 255, 0.76) 4.67%, rgba(197, 244, 255, 0.07) 41.31%, rgba(197, 244, 255, 0.42) 67.52%);
 }
 
-.chattingInfo{
+.chattingInfo {
     width: 320px;
     min-width: 320px;
 }
 
 .chatlist,
 .chattingArea,
-.chattingInfo{
+.chattingInfo {
     height: 100vh;
     overflow: hidden;
 }
 
 /* opening */
 
-.opening{
+.opening {
     position: fixed;
     height: 100vh;
     left: 0;
@@ -40,7 +40,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-._open{
+._open {
     width: 100%;
     animation: pen 1s;
     background-color: rgb(255, 255, 255);
@@ -48,8 +48,21 @@
 }
 
 @media screen and (max-width:1320px) {
-    .chatlist{
+    .chatlist {
         width: 320px;
         min-width: 320px
+    }
+}
+
+@media screen and (max-width:850px) {
+    .chatlist {
+        width: 290px;
+        min-width: 290px;
+    }
+}
+
+@media screen and (max-width:720px) {
+    .chatlist {
+        width: 100%;
     }
 }

@@ -56,10 +56,6 @@
     font-size: 16px;
 }
 
-.userName p {
-    font-size: 13px;
-}
-
 .userName h1 {
     width: 100%;
     overflow: hidden;
@@ -77,6 +73,7 @@
     overflow: hidden;
     opacity: .8;
     margin-top: 4px;
+    font-size: 13px;
 }
 
 .userUnread {
@@ -131,6 +128,47 @@
 
 
 @media screen and (max-width:1320px) {
+    .userName{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .userName h1 {
+        font-size: 14px;
+    }
+
+    .userName p{
+        font-size: 11px;
+        height: 24px;
+    }
+}
+
+@media screen and (max-width:720px) {
+    .userName{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:630px) {
+    .userName{
+        width: 75%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .userName{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width:420px) {
+    .userName{
+        width: 66%;
+    }
+}
+
+@media screen and (max-width:340px) {
     .userName{
         width: 60%;
     }

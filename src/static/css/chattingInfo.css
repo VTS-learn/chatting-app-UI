@@ -83,3 +83,23 @@
         height: 100vh;
     }
 }
+
+@media screen and (max-width:1024px){
+    .chattingInfo {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:620px){
+    .chattingInfo {
+        width: 100%;
+    }
+
+    .table-wrapper ,
+    .personal-info{
+        width: 75%;
+        overflow-wrap: break-word;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

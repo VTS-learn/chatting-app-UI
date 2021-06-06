@@ -1,4 +1,4 @@
-.chatting-text-area{
+.chatting-text-area {
     height: 78vh;
     overflow-y: auto;
     overflow-x: hidden;
@@ -8,37 +8,37 @@
     flex-direction: column-reverse;
 }
 
-@media screen and (max-height:900px){
-    .chatting-text-area{
+@media screen and (max-height:900px) {
+    .chatting-text-area {
         height: 76vh;
     }
 }
 
-@media screen and (max-height:800px){
-    .chatting-text-area{
+@media screen and (max-height:800px) {
+    .chatting-text-area {
         height: 73vh;
     }
 }
 
 
-@media screen and (max-height:700px){
-    .chatting-text-area{
+@media screen and (max-height:700px) {
+    .chatting-text-area {
         height: 70vh;
     }
 }
 
-@media screen and (max-height:620px){
-    .chatting-text-area{
+@media screen and (max-height:620px) {
+    .chatting-text-area {
         height: 68vh;
     }
 }
 
-.single-text-field{
+.single-text-field {
     display: flex;
     position: relative;
 }
 
-.the-message{
+.the-message {
     padding: 15px 20px;
     background-color: #fff;
     margin: 0 10px;
@@ -51,33 +51,34 @@
     position: relative;
 }
 
-.the-message[type="audio"]{
+.the-message[type="audio"] {
     min-width: max-content;
 }
 
-.the-message-sent{
+.the-message-sent {
     font-size: 12px;
     display: inline-block;
     margin: 10px 20px;
+    margin-top: 5px;
 }
 
-.single-text-field[type="me"]{
+.single-text-field[type="me"] {
     direction: rtl;
 }
 
-.single-text-field[type="me"] .the-message{
+.single-text-field[type="me"] .the-message {
     direction: ltr;
     border-top-left-radius: 20px;
-    border-bottom-right-radius: 0px ;
+    border-bottom-right-radius: 0px;
     max-width: 67%;
     width: fit-content;
 }
 
-.single-text-field[type="me"] span{
+.single-text-field[type="me"] span {
     direction: ltr;
 }
 
-.specific_reply{
+.specific_reply {
     position: relative;
     padding: 15px 20px;
     margin-right: 10px;
@@ -93,7 +94,7 @@
     direction: ltr !important;
 }
 
-.option-icon{
+.option-icon {
     position: absolute;
     top: 0;
     right: -35px;
@@ -102,16 +103,16 @@
     transition: .3s;
 }
 
-.single-text-field:hover .option-icon{
+.single-text-field:hover .option-icon {
     opacity: 1;
 }
 
-.single-text-field[type="me"] .option-icon{
+.single-text-field[type="me"] .option-icon {
     right: auto;
     left: -35px;
 }
 
-.text-option-list{
+.text-option-list {
     position: absolute;
     top: 0;
     right: -140px;
@@ -124,12 +125,12 @@
     height: auto;
 }
 
-.single-text-field[type="me"] .text-option-list{
+.single-text-field[type="me"] .text-option-list {
     right: auto;
     left: -140px;
 }
 
-.text-option-list button{
+.text-option-list button {
     padding: 3px 25px !important;
     cursor: pointer !important;
     font-size: 14px !important;
@@ -139,3 +140,61 @@
     text-transform: none;
 }
 
+
+.recording-icon{
+    width: 400px;
+}
+
+.recording-buttons-area{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.recoder-audio-player{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.recoder-audio-player .MuiPaper-root.MuiGrid-root.MuiPaper-rounded{
+    position: relative;
+    top: -35px;
+}
+
+.voice-recoder-modal{
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.audio__player .MuiPaper-root {
+    box-shadow: none !important;
+}
+
+.audio__player svg.MuiSvgIcon-root:hover {
+    color: rgba(0, 0, 0, 0.54) !important;
+}
+
+@media screen and (max-width:1024px) {
+    .audio__player .MuiPaper-root.MuiGrid-root.MuiPaper-elevation1 {
+        display: flex;
+        align-items: center;
+        width: 280px;
+    }
+
+    .audio__player .MuiGrid-spacing-xs-3>.MuiGrid-item {
+        align-items: center;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .the-message p {
+        font-size: 14px;
+    }
+}

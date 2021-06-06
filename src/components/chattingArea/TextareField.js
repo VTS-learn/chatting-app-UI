@@ -47,12 +47,15 @@ const TextareField = (props) => {
       setOpen(true);
     };
   
-    const handleClose = () => {
+    const handleClose = (e) => {
       setOpen(false);
     };
 
-    const send_message = () =>{
-      message.trim() !== "" && props.text_tran(message)
+    const send_message = ( e , file_url) =>{
+      
+      file_url && props.text_tran( false , file_url );
+      message.trim() !== "" && props.text_tran(message , false);
+      
       setMassage('')
       dispatch(specefic_reply(false))
     }
@@ -102,7 +105,7 @@ const TextareField = (props) => {
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                      <AudioRecoder/>
+                      <AudioRecoder send_mess = {send_message} modalClose={handleClose}/>
                     </div>
                 </Fade>
             </Modal>
