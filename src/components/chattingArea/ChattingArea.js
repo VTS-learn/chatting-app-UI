@@ -6,6 +6,8 @@ import '../../static/css/chattingArea.css';
 import '../../static/css/chating-text-area.css';
 import audio from '../../static/audio/abdullah-ali-jabir-studio-surah-001.mp3';
 import { useSelector } from 'react-redux';
+import { Tween } from 'react-gsap';
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 const ChattingArea = () => {
     const [ messageArray ,setMessageArray ] = useState(text_array)
@@ -15,6 +17,7 @@ const ChattingArea = () => {
 
     const sending_text = (the_text , the_audio = false ) =>{
         setMessageArray([
+            ...messageArray,
             {
                 id : Math.floor(Math.random()*9900),
                 text_To: "me",
@@ -22,8 +25,7 @@ const ChattingArea = () => {
                 audio : the_audio,
                 is_reply : reply_dedicated,
                 the_reply_text : reply
-            },
-            ...messageArray
+            }
         ])
 
         setReply(false)
@@ -39,39 +41,36 @@ const ChattingArea = () => {
         setTimeout(() => {
             setMessageArray(messageArrayitems)
         }, 200);
-        console.log(messageArrayitems)
     }
-
-    const test_1 = { width: '0', height:'0'  }
-    const test_2 = { width: 'auto', height:'auto'  }
-
+    
 
     return (
         <div className="chattingArea">
             <ChatAreaHeader/>
 
-            <div className="chatting-text-area">
+            <ScrollToBottom className="chatting-text-area">
+                <div className="chatting-text-wrapper">
                 {
                     messageArray.map((item,index) => {
-                        return <ChattingText 
-                                    key={index} 
-                                    removeItem={removeItem}
-                                    reply_val={reply_val}
+                        return  <Tween key={index}  from={{ scale:.96 }} duration={1} ease="elastic.out(1, 0.3)" >
+                                    <div>
+                                        <ChattingText 
+                                            removeItem={removeItem}
+                                            reply_val={reply_val}
 
-                                    id={item.id}
-                                    textTo={item.text_To}
-                                    audio={item.audio}
-                                    is_reply={item.is_reply}
-                                    the_text={item.the_text}
-                                    the_reply_text={item.the_reply_text}
-
-                                    test_1={test_1}
-                                    test_2={test_2}
-                                    
-                                />
+                                            id={item.id}
+                                            textTo={item.text_To}
+                                            audio={item.audio}
+                                            is_reply={item.is_reply}
+                                            the_text={item.the_text}
+                                            the_reply_text={item.the_reply_text}                                    
+                                        />
+                                    </div>
+                                </Tween>
                     })
                 }
-            </div>
+                </div>
+            </ScrollToBottom>
 
             <TextareField 
                 text_tran={sending_text}

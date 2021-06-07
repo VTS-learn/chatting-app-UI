@@ -32,24 +32,32 @@ code {
 
 @media screen and (min-width:1020px) {
 
-  .main-div::-webkit-scrollbar {
-    width: 0px;
+  .main-div::-webkit-scrollbar{
+    width: 0px !important;
   }
 
-  .main-div:hover::-webkit-scrollbar {
-    width: 10px;
+  .main-div:hover::-webkit-scrollbar,
+  .chatting-text-area div:first-child::-webkit-scrollbar {
+    width: 10px !important;
   }
 
-  .main-div::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  .main-div::-webkit-scrollbar-track,
+  .chatting-text-area div:first-child::-webkit-scrollbar-track {
+    background: #f1f1f1 !important;
   }
 
-  .main-div::-webkit-scrollbar-thumb {
-    background: #888;
+  .main-div::-webkit-scrollbar-thumb,
+  .chatting-text-area div:first-child::-webkit-scrollbar-thumb {
+    background: #888 !important;
   }
 
-  .main-div::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  .main-div::-webkit-scrollbar-thumb:hover,
+  .chatting-text-area div:first-child::-webkit-scrollbar-thumb:hover {
+    background: #555 !important;
+  }
+
+  .chatting-text-area button[type="button"]:first-child{
+    right: 15px;
   }
 
 }

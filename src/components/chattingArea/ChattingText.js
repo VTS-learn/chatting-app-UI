@@ -53,7 +53,7 @@ const ChattingText = (props) => {
     let viewportWidth = window.innerWidth || document.documentElement.clientWidth;
 
     return (
-        <div className={props.id}>
+        <>
             <div className="single-text-field" type={props.textTo} onMouseLeave={hideFun}>
 
                 {
@@ -70,13 +70,9 @@ const ChattingText = (props) => {
                 <Timeline target= {
                     <div className="text-info">
                         { props.is_reply &&  
-                            <Tween from={props.test_1} to={props.test_2} duration={.8}>
-                                <div>
-                                <p className="specific_reply" > 
-                                    { props.audio ? <> <AudiotrackTwoToneIcon/> audio clip ! </> : props.the_reply_text }
-                                </p> 
-                                </div>
-                            </Tween>
+                            <p className="specific_reply" > 
+                                { props.audio ? <> <AudiotrackTwoToneIcon/> audio clip ! </> : props.the_reply_text }
+                            </p> 
                         }
                         
                         <div className="the-message" type={props.audio ? "audio" : "text"}>
@@ -116,7 +112,7 @@ const ChattingText = (props) => {
                 </Timeline>
                 
             </div>
-        </div>
+        </>
         
     )
 }

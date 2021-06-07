@@ -36,7 +36,7 @@ const ChatListCard = (props) => {
             setDays(c_days);
             setHours(c_hours);
             setMinutes(c_minutes);
-    
+            
         },1000)
 
     },[lastTime])

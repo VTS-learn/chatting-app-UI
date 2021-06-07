@@ -5,7 +5,11 @@
     margin: 0 10px;
     padding: 10px 20px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+}
+
+.chatting-text-wrapper{
+    overflow-x: hidden;
 }
 
 @media screen and (max-height:900px) {
@@ -182,10 +186,14 @@
 }
 
 @media screen and (max-width:1024px) {
-    .audio__player .MuiPaper-root.MuiGrid-root.MuiPaper-elevation1 {
+    /* .audio__player .MuiPaper-root.MuiGrid-root.MuiPaper-elevation1 {
         display: flex;
         align-items: center;
         width: 280px;
+    } */
+
+    .audio__player .MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-2.MuiGrid-item {
+        align-items: center;
     }
 
     .audio__player .MuiGrid-spacing-xs-3>.MuiGrid-item {
