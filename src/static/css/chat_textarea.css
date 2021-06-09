@@ -52,3 +52,15 @@
 .reply-remove svg{
     margin: 0 !important;
 }
+
+@media screen and (max-width:1020px) {
+    .chat_text_area{
+        bottom: 5px;
+    }
+}
+
+/* @media screen and (max-width:720px){
+    .chat_text_area{
+        position: fixed;
+    }
+} */

@@ -1,13 +1,15 @@
 import React from 'react';
-import { Tween } from 'react-gsap';
+import { Timeline, Tween } from 'react-gsap';
 
 function Open(props) {
     return (
-        <>
-            <Tween from={{ width:'100%' }} to={{ width:'0%' , border: "none" }} duration={props.due}>
+        <Timeline 
+            target={
                 <div className="_open"></div>
-            </Tween>
-        </>
+            }
+        >
+            <Tween from={{ width:'100%' }} to={{ width:'0%' , border: "none" }} duration={props.due}/>
+        </Timeline>
     )
 }
 

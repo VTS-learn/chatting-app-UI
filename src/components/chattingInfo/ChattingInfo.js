@@ -12,6 +12,8 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { useDispatch } from 'react-redux';
 import  {responsive_ui} from '../../store/actions';
 import Button from '@material-ui/core/Button';
+import roundImg from '../../static/img/round'
+import { Timeline, Tween , SplitWords } from 'react-gsap';
 
 const useStyles = makeStyles((theme) =>({
     large: {
@@ -50,49 +52,96 @@ const ChattingInfo = () => {
                         src="https://i.pinimg.com/originals/00/f3/ba/00f3baed741806ab1cc74e094b30824b.jpg" 
                         className={classes.large} 
                     />
+                    <Timeline
+                        target={<div className="round_img"> {roundImg} </div>}
+                    >
+                        <Tween to={{ rotation: 180 }} duration={10} ease="elastic.out(2, 0.5)" />
+                    </Timeline>
+                    
                 </div>
-                <h1 className="chatting-info-avatar-name"> Remy Sharp </h1>
-                <p className="personal-info">
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
-                </p>
+                
+
+                <div className="chatting-info-avatar-name">
+                    <Tween
+                        from={{ scale: .7, opacity : 0 }}
+                        duration={1}
+                        stagger={0.2}
+                    >
+                        <SplitWords
+                        delimiter=" "
+                        wrapper={<div/>}
+                        >
+                        Remy Sharp
+                        </SplitWords>
+                    </Tween>
+                </div>
+
+                <div className="personal-info">
+                    <Tween
+                        from={{ scale: .7, opacity : 0 }}
+                        duration={1}
+                        stagger={0.2}
+                    >
+                        <SplitWords
+                        delimiter=" "
+                        wrapper={<p/>}
+                        >
+                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                        </SplitWords>
+                    </Tween>
+                </div>
                 
 
                 <div className="table-wrapper">
-                    <div className="table-data-info">
-                        <span> <WcIcon/> </span>
-                        <p className="table-type"> Gender </p>
-                        <p className="table-data"> Male </p>
-                    </div>
+                    <Timeline>
+                        <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} duration={.6}>
+                            <div className="table-data-info">
+                                <span> <WcIcon/> </span>
+                                <p className="table-type"> Gender </p>
+                                <p className="table-data"> Male </p>
+                            </div>
+                        </Tween>
 
-                    <div className="table-data-info">
-                        <span> <CakeIcon/> </span>
-                        <p className="table-type"> Birthday </p>
-                        <p className="table-data"> 2 Feb, 1994 </p>
-                    </div>
+                        <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} duration={.5}>
+                            <div className="table-data-info">
+                                <span> <CakeIcon/> </span>
+                                <p className="table-type"> Birthday </p>
+                                <p className="table-data"> 2 Feb, 1994 </p>
+                            </div>
+                        </Tween>
 
-                    <div className="table-data-info">
-                        <span> <PhoneIphoneIcon/> </span>
-                        <p className="table-type"> Mobile Num. </p>
-                        <p className="table-data"> +324 324 2234 </p>
-                    </div>
+                        <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} duration={.4}>
+                            <div className="table-data-info">
+                                <span> <PhoneIphoneIcon/> </span>
+                                <p className="table-type"> Mobile Num. </p>
+                                <p className="table-data"> +324 324 2234 </p>
+                            </div>
+                        </Tween>
 
-                    <div className="table-data-info">
-                        <span> <EmailIcon/> </span>
-                        <p className="table-type"> Email </p>
-                        <p className="table-data"> example@email.com </p>
-                    </div>
+                        <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} duration={.4}>
+                            <div className="table-data-info">
+                                <span> <EmailIcon/> </span>
+                                <p className="table-type"> Email </p>
+                                <p className="table-data"> example@email.com </p>
+                            </div>
+                        </Tween>
 
-                    <div className="table-data-info">
-                        <span> <PersonPinCircleIcon/> </span>
-                        <p className="table-type"> Address </p>
-                        <p className="table-data"> Gaibandha, Bangladesh </p>
-                    </div>
+                        <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} duration={.4}>
+                            <div className="table-data-info">
+                                <span> <PersonPinCircleIcon/> </span>
+                                <p className="table-type"> Address </p>
+                                <p className="table-data"> Gaibandha, Bangladesh </p>
+                            </div>
+                        </Tween>
 
-                    <div className="table-data-info">
-                        <span> <HomeWorkIcon/> </span>
-                        <p className="table-type"> Work/Collage </p>
-                        <p className="table-data"> URW Tech </p>
-                    </div>
+                        <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} duration={.4}>
+                            <div className="table-data-info">
+                                <span> <HomeWorkIcon/> </span>
+                                <p className="table-type"> Work/Collage </p>
+                                <p className="table-data"> URW Tech </p>
+                            </div>
+                        </Tween>
+                    </Timeline>
                 </div>
 
             </div>

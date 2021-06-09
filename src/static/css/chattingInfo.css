@@ -1,24 +1,58 @@
 .chattingInfo{
     position: relative;
     background-color: #fff;
+    z-index: 99;
 }
 
 .chattingInfo-img{
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    position: relative;
+}
+
+.round_img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 230px;
+    height: 230px;
+    z-index: -1;
 }
 
 .chatting-info-avatar-name{
-    margin: 20px 10px;
+    margin: 0px 10px;
     font-size: 20px;
     text-align: center;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    display: flex;
+    overflow-wrap: break-word;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.chatting-info-avatar-name div{
+    margin-right: 10px;
+}
+
+.chatting-info-avatar-name div:last-child{
+    margin-right: 0px;
 }
 
 .personal-info{
-    font-size: 14px;
     margin: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
 }
+
+.personal-info p{
+    font-size: 14px;
+    margin-left: 5px;
+}
+
 
 .table-wrapper{
     margin: 0 10px;
@@ -102,4 +136,5 @@
         margin-left: auto;
         margin-right: auto;
     }
+
 }

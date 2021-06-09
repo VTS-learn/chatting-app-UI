@@ -1,29 +1,31 @@
+import React , { useState } from 'react';
 import './App.css';
 import Open from './components/Open';
-import { Timeline, Tween } from 'react-gsap';
-import ResponsivCall from './ResponsivCall'
+import ResponsivCall from './ResponsivCall';
 
 const App = () => {
   
+  const [ close , setClose ] = useState(false)
+
+    setTimeout(()=>{
+        setClose(true)
+    },1000)
+
   return (
     <div className="app">
 
-      <ResponsivCall/>      
+      <ResponsivCall/>
 
-      <Timeline
-        target={
-          <div className="opening">
-            <Open due={.6}/>
-            <Open due={.5}/>
-            <Open due={.4}/>
-            <Open due={.3}/>
-            <Open due={.3}/>
-          </div>
-        }
-      >
-        <Tween to={{ display:'none' }} duration={.1} />
-      </Timeline>
-      
+      {
+        !close && 
+        <div className="opening">
+          <Open due={.8}/>
+          <Open due={1}/>
+          <Open due={1}/>
+          <Open due={1}/>
+          <Open due={1}/>
+        </div>
+      }
     </div>
   );
 }

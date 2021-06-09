@@ -56,8 +56,4 @@ code {
     background: #555 !important;
   }
 
-  .chatting-text-area button[type="button"]:first-child{
-    right: 15px;
-  }
-
 }

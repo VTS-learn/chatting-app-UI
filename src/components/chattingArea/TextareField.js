@@ -72,7 +72,7 @@ const TextareField = (props) => {
           {
             props.reply_val && 
             <Box display="flex" alignSelf="flex-start" justifyContent="space-between">
-              <p className="reply-text"> { props.reply_val === "audio" ? <> <AudiotrackTwoToneIcon/> audio clip ! </> : props.reply_val } </p>
+              <p className="reply-text"> { props.replyType === "audio" ? <> <AudiotrackTwoToneIcon/> audio clip ! </> : props.reply_val } </p>
               <Button 
                 variant="outlined" 
                 color="primary" 

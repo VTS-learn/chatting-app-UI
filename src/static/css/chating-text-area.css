@@ -42,6 +42,10 @@
     position: relative;
 }
 
+.single-text-field img{
+    z-index: 9;
+}
+
 .the-message {
     padding: 15px 20px;
     background-color: #fff;
@@ -204,5 +208,31 @@
 @media screen and (max-width:850px) {
     .the-message p {
         font-size: 14px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .voice-recoder-modal{
+        width: 280px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .recording-icon{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+    }
+
+    .chatting-text-area{
+        margin:0;
+        padding: 10px 5px;
+    }
+}
+
+@media screen and (max-width:360px){
+    .voice-recoder-modal{
+        width: 240px;
     }
 }

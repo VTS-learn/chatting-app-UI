@@ -16,16 +16,18 @@
     background: linear-gradient(338.12deg, rgba(197, 244, 255, 0.76) 4.67%, rgba(197, 244, 255, 0.07) 41.31%, rgba(197, 244, 255, 0.42) 67.52%);
 }
 
-.chattingInfo {
-    width: 320px;
-    min-width: 320px;
-}
-
 .chatlist,
 .chattingArea,
 .chattingInfo {
     height: 100vh;
     overflow: hidden;
+}
+
+.chattingInfo {
+    width: 320px;
+    min-width: 320px;
+    padding-bottom: 40px;
+    overflow-y: auto;
 }
 
 /* opening */

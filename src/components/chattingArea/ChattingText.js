@@ -5,13 +5,10 @@ import Button from '@material-ui/core/Button';
 import { Timeline, Tween } from 'react-gsap';
 import {specefic_reply} from '../../store/actions';
 import { useDispatch } from 'react-redux';
-import AudiotrackTwoToneIcon from '@material-ui/icons/AudiotrackTwoTone';
 import AudioPlayer from 'material-ui-audio-player';
 
 const ChattingText = (props) => {
     const [ show , setShow ] = useState(false);
-    const [ opacityAnim , setOpacityAnim ] = useState({ opacity: 1 });
-    const [ leftAnim , setLeftAnim ] = useState({  scale:1 });
 
     const dispatch = useDispatch();
 
@@ -24,30 +21,17 @@ const ChattingText = (props) => {
     }
 
     const specific_reply = () =>{
-        !props.audio ?  props.reply_val(props.the_text) : props.reply_val("audio")
+        
+        props.the_text &&  props.reply_val(props.the_text , "text") 
+        props.audio && props.reply_val(props.audio , "audio")
         dispatch(specefic_reply(true))
+        
+        
     }
 
-    const remove = (e) =>{
-        
-        // setOpacityAnim({  opacity: 0 })
-        setLeftAnim({
-            x: props.textTo === "you" ? '-200px' : '200px' ,
-            scale: 0.8,
-            ease: "slow(0.7, 0.7, false)"
-        })
+    const remove = () =>{
         setShow(false)
-
-        setTimeout(() => {
-            setOpacityAnim({  opacity: 1 })
-            setLeftAnim({
-                x: '0px' ,
-                scale: 1
-            })
-        }, 100);
-
         props.removeItem(props.id)
-        
     }
 
     let viewportWidth = window.innerWidth || document.documentElement.clientWidth;
@@ -63,16 +47,28 @@ const ChattingText = (props) => {
                             src="https://i.pinimg.com/originals/00/f3/ba/00f3baed741806ab1cc74e094b30824b.jpg" 
                         />
                         }>
-                        <Tween to={opacityAnim} duration={.2}/>
+                        <Tween duration={.2}/>
                     </Timeline>
                 }
                 
                 <Timeline target= {
                     <div className="text-info">
                         { props.is_reply &&  
-                            <p className="specific_reply" > 
-                                { props.audio ? <> <AudiotrackTwoToneIcon/> audio clip ! </> : props.the_reply_text }
-                            </p> 
+                            <div className="specific_reply" > 
+                                {
+                                    props.the_reply_text && <p>{props.the_reply_text}</p>
+                                }
+
+                                {
+                                    props.the_reply_audio && <div className="audio__player">
+                                                                <AudioPlayer
+                                                                    volume={ viewportWidth < 1024 ? false : true }
+                                                                    src={props.the_reply_audio}
+                                                                    order="standart"
+                                                                />
+                                                            </div>
+                                }
+                            </div> 
                         }
                         
                         <div className="the-message" type={props.audio ? "audio" : "text"}>
@@ -107,8 +103,8 @@ const ChattingText = (props) => {
                     </div> 
                     }>
                     
-                    <Tween to={leftAnim} duration={.2}/>
-                    <Tween to={opacityAnim} duration={.2}/>
+                    <Tween to={{ scale : props.scaleText }} duration={props.duration}  ease = "elastic.out(1, 0.3)"/>
+                    <Tween to={  props.textTo === "you" ? { x: -props.moveText } : { x: props.moveText }} duration={props.duration}/>
                 </Timeline>
                 
             </div>
